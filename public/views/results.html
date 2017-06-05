@@ -1,0 +1,75 @@
+<div class="container">
+	
+<div class = "row">
+	<div class=" col-sm-12 card">
+		
+		<div class="row bg-orange">
+			<div class="resultPanel text-center">
+				<h2 class="fg-skin">User Applications</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				
+				<div class="tableHead row">
+					<div class="itemHead col-sm-2 col-xs-6 fg-orange"><strong>Name</strong></div>
+					<div class="itemContent col-sm-10 col-xs-6 fg-orange">
+						<strong>Information</strong>
+					</div>
+				</div>
+				
+				<div ng-repeat="x in users | filter:search" class="customClickable row">
+					<a ui-sref ="mainApp.userDetails({id:x.emailId})" class="col-sm-12 aItem">
+						<div class="row">
+							<div class="col-sm-2 fg-orange itemHead">{{x.firstName+' '+x.lastName}}</div>
+							<div class="col-sm-10 fg-orange itemContent">{{x.description}}</div>
+						</div>
+					</a>
+					<span class="text-right fg-totiya" data-toggle="modal" data-target="#confirmModal" ng-click="setUser(x.emailId)" >&times;</span>
+				</div>
+				
+				
+				<!-- a ui-sref ="mainApp.userDetails({id:x.emailId})" ng-repeat="x in users | filter:search" class="customClickable">
+					<div class="itemHead fg-orange">{{x.firstName+' '+x.lastName}}</div>
+					<div class="itemContent fg-orange">
+						{{x.description}}
+						<span class="text-right fg-totiya" data-toggle="modal" data-target="#confirmModal" ng-click="setUser(x.emailId)" >&times;</span>
+					</div>
+				</a-->
+				
+				<div class="modal fade" id="confirmModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" data-dismiss="modal">&times;</button>
+								<h2 class="text-center">Are You Sure?</h2>
+							</div>
+							<div class="modal-body text-center">
+								<button class="btn fg-skin bg-orange" ng-click="remove(currentUser.emailId)" data-dismiss="modal">Remove {{currentUser.firstName}}</button>
+								<button class="btn fg-skin bg-orange" data-dismiss="modal">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<div class="row bg-orange">
+			<div class="resultPanel">
+				<div class="row form-group">
+					<div class="col-sm-10 col-xs-8">
+						<input type="text" class="form-control" placeholder="Search" ng-model="search.firstName">
+					</div>
+					<div  class="col-sm-1 col-xs-4">
+						<button class="btn bg-skin fg-white">Search</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container">
+	<div class="row" ng-if="currentUser" id="mainContent">
+		<div class="col-sm-3">
+			<img alt="" src="images/user.jpg" class="img-responsive" style="margin:auto">
+		</div>
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		
+		<div class="col-sm-9">
+	
+			<div class="row">
+				<h2 class="col-sm-6 col-xs-8">{{currentUser.firstName +' '+currentUser.lastName}}</h2>
+				<h4 class="col-sm-6 col-xs-4 text-right"><span class="glyphicon glyphicon-envelope gl-4x fg-orange"></span></h4>
+			</div>
+			<hr></hr>
+	
+			<div class="row">
+				<div class="col-sm-2 col-xs-4 text-right fg-orange"><h4>Residence</h4></div>
+				<div class="col-sm-6 col-xs-8 text-left">
+					<h4 class="">{{currentUser.city+' '+currentUser.pincode}}</h4>
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col-sm-2 col-xs-4 text-right fg-orange"><h4>Contact</h4></div>
+				<div class="col-sm-4 col-xs-8 text-left">
+					<h4 class="">{{currentUser.mobile+' '}}</h4>
+				</div>
+				<div class="col-sm-2 col-xs-4 text-right fg-orange"><h4>Landline</h4></div>
+				<div class="col-sm-4 col-xs-8 text-left">
+					<h4 class="">{{currentUser.landline+' '}}</h4>
+				</div>
+			</div>
+	
+			<div class="row hidden-xs">
+				<div class="col-sm-2 text-right fg-orange"><h4>Why Do you Join Us?</h4></div>
+				<div class="col-sm-10 text-left">
+					<h4 class="">{{currentUser.description+' '}}</h4>
+				</div>
+			</div>
+			<div class="row visible-xs">
+				<div class="col-xs-12 text-center fg-orange"><h4>Why Do you Join Us?</h4></div>
+				<div class="col-xs-12 text-left">
+					<h4 class="">{{currentUser.description+' '}}</h4>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12 text-center fg-orange">
+					<button class="btn fg-black bg-orange">Approve</button>
+					<button class="btn fg-black bg-orange" data-target="#confirmModal" data-toggle="modal">Reject</button>
+				</div>
+			</div>
+			<p style="padding:40px"></p>
+			<div class="modal fade" id="confirmModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" data-dismiss="modal">&times;</button>
+								<h2 class="text-center">Are You Sure?</h2>
+							</div>
+							<div class="modal-body text-center">
+								<button class="btn fg-skin bg-orange"  ng-click="remove(currentUser.emailId)" data-dismiss="modal" >Remove {{currentUser.firstName}}</button>
+								<button class="btn fg-skin bg-orange" data-dismiss="modal">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			
+		</div>
+
+		
+	</div>
+	
+	
+	<div class="row" ng-if="currentUser==null">
+		<img alt="" src="images/404.jpg" class="img-responsive" style="margin:auto">
+		<h3 class='text-center'>The User you are looking for doesn't exist.Click here to <a ui-sref="mainApp">GO HOME</a></h3>
+	</div>
+	
+	<div class="row" style="display:none" id="delUser">
+		<img src="images/userDelIcon.jpg" class="img-responsive" style="margin:auto">
+		<h3 class='text-center'>User Rejected!! Click here to <a ui-sref="mainApp.results">BACK</a></h3>
+	</div>
+	
+</div>
