@@ -11,11 +11,11 @@ angular.module('FormApp')
 		url:'/',
 		views:{
 			'header':{
-				templateUrl:'views/header.jsp',
+				templateUrl:'views/header.html',
 				controller:'NavbarCtrl'
 			},
 			'content':{
-				templateUrl:'views/form.jsp',
+				templateUrl:'views/form.html',
 				controller:'FormCtrl'
 			}
 		}
@@ -24,7 +24,7 @@ angular.module('FormApp')
 		url:'results',
 		views:{
 			'content@':{
-				templateUrl:'views/results.jsp',
+				templateUrl:'views/results.html',
 				controller:'ResultCtrl'
 			}
 		}
@@ -33,7 +33,7 @@ angular.module('FormApp')
 		url:'results/:id',
 		views:{
 			'content@':{
-				templateUrl:'views/userDetails.jsp',
+				templateUrl:'views/userDetails.html',
 				controller:'UserDetailsCtrl'
 			}
 		}
